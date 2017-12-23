@@ -14,6 +14,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+      <h1><?php echo $heading_title; ?></h1>
       <div class="row">
         <?php if ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
@@ -119,11 +120,7 @@
         <?php $class = 'col-sm-4'; ?>
         <?php } ?>
         <div class="<?php echo $class; ?>">
-          <div class="btn-group">
-            <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i></button>
-            <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-balance-scale"></i></button>
-          </div>
-          <h1><?php echo $heading_title; ?></h1>
+        <!--  <h1><?php echo $heading_title; ?></h1> -->
           <ul class="list-unstyled">
             <?php if ($manufacturer) { ?>
             <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
@@ -288,16 +285,21 @@
               <div class="help-block" id="recurring-description"></div>
             </div>
             <?php } ?>
-            <div class="form-group">
+            <div class="form-group form-inline">
               <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
-              <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
+              <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control input-lg" />
               <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-              <br />
-              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block"><?php echo $button_cart; ?></button>
+              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-default btn-lg"><?php echo $button_cart; ?></button>
             </div>
             <?php if ($minimum > 1) { ?>
             <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
             <?php } ?>
+            <hr>
+              <div class="btn-group">
+                <button type="button" data-toggle="tooltip" class="btn btn-success btn-lg" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm"><?php echo $button_wishlist; ?></span></button>
+                <button type="button" data-toggle="tooltip" class="btn btn-warning btn-lg" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-balance-scale"></i> <span class="hidden-xs hidden-sm"><?php echo $button_compare; ?></span></button>
+              </div>
+            <hr>
           </div>
           <?php if ($review_status) { ?>
           <div class="rating">
