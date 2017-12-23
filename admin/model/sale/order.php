@@ -13,8 +13,8 @@ class ModelSaleOrder extends Model {
 		// Delete voucher data as well
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "voucher` WHERE order_id = '" . (int)$order_id . "'");
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "voucher_history` WHERE order_id = '" . (int)$order_id . "'");
-	}	
-	
+	}
+
 	public function getOrder($order_id) {
 		$order_query = $this->db->query("SELECT *, (SELECT CONCAT(c.firstname, ' ', c.lastname) FROM " . DB_PREFIX . "customer c WHERE c.customer_id = o.customer_id) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status FROM `" . DB_PREFIX . "order` o WHERE o.order_id = '" . (int)$order_id . "'");
 
@@ -62,7 +62,7 @@ class ModelSaleOrder extends Model {
 			foreach ($order_product_query->rows as $product) {
 				$reward += $product['reward'];
 			}
-			
+
 			if ($order_query->row['affiliate_id']) {
 				$affiliate_id = $order_query->row['affiliate_id'];
 			} else {
@@ -105,6 +105,8 @@ class ModelSaleOrder extends Model {
 				'lastname'                => $order_query->row['lastname'],
 				'email'                   => $order_query->row['email'],
 				'telephone'               => $order_query->row['telephone'],
+				'telephone1'              => $order_query->row['telephone1'],
+				'telephone2'              => $order_query->row['telephone2'],
 				'fax'                     => $order_query->row['fax'],
 				'custom_field'            => json_decode($order_query->row['custom_field'], true),
 				'payment_firstname'       => $order_query->row['payment_firstname'],

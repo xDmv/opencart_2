@@ -87,6 +87,8 @@ class ControllerCommonHeader extends Controller {
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		$data['contact'] = $this->url->link('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
+		$data['telephone1'] = $this->config->get('config_telephone1');
+		$data['telephone2'] = $this->config->get('config_telephone2');
 
 		// Menu
 		$this->load->model('catalog/category');

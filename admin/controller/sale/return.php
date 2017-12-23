@@ -573,6 +573,8 @@ class ControllerSaleReturn extends Controller {
 		$data['entry_lastname'] = $this->language->get('entry_lastname');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
+		$data['entry_telephone1'] = $this->language->get('entry_telephone1');
+		$data['entry_telephone2'] = $this->language->get('entry_telephone2');
 		$data['entry_product'] = $this->language->get('entry_product');
 		$data['entry_model'] = $this->language->get('entry_model');
 		$data['entry_quantity'] = $this->language->get('entry_quantity');
@@ -634,6 +636,16 @@ class ControllerSaleReturn extends Controller {
 			$data['error_telephone'] = $this->error['telephone'];
 		} else {
 			$data['error_telephone'] = '';
+		}
+		if (isset($this->error['telephone1'])) {
+			$data['error_telephone1'] = $this->error['telephone1'];
+		} else {
+			$data['error_telephone1'] = '';
+		}
+		if (isset($this->error['telephone2'])) {
+			$data['error_telephone2'] = $this->error['telephone2'];
+		} else {
+			$data['error_telephone2'] = '';
 		}
 
 		if (isset($this->error['product'])) {
@@ -780,6 +792,20 @@ class ControllerSaleReturn extends Controller {
 			$data['telephone'] = $return_info['telephone'];
 		} else {
 			$data['telephone'] = '';
+		}
+		if (isset($this->request->post['telephone1'])) {
+			$data['telephone1'] = $this->request->post['telephone1'];
+		} elseif (!empty($return_info)) {
+			$data['telephone1'] = $return_info['telephone1'];
+		} else {
+			$data['telephone1'] = '';
+		}
+		if (isset($this->request->post['telephone2'])) {
+			$data['telephone2'] = $this->request->post['telephone2'];
+		} elseif (!empty($return_info)) {
+			$data['telephone2'] = $return_info['telephone2'];
+		} else {
+			$data['telephone2'] = '';
 		}
 
 		if (isset($this->request->post['product'])) {

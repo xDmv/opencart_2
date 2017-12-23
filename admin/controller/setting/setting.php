@@ -80,6 +80,8 @@ class ControllerSettingSetting extends Controller {
 		$data['entry_geocode'] = $this->language->get('entry_geocode');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
+		$data['entry_telephone1'] = $this->language->get('entry_telephone1');
+		$data['entry_telephone2'] = $this->language->get('entry_telephone2');
 		$data['entry_fax'] = $this->language->get('entry_fax');
 		$data['entry_image'] = $this->language->get('entry_image');
 		$data['entry_open'] = $this->language->get('entry_open');
@@ -327,7 +329,16 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$data['error_telephone'] = '';
 		}
-
+		if (isset($this->error['telephone1'])) {
+			$data['error_telephone1'] = $this->error['telephone1'];
+		} else {
+			$data['error_telephone1'] = '';
+		}
+		if (isset($this->error['telephone2'])) {
+			$data['error_telephone2'] = $this->error['telephone2'];
+		} else {
+			$data['error_telephone2'] = '';
+		}
 		if (isset($this->error['meta_title'])) {
 			$data['error_meta_title'] = $this->error['meta_title'];
 		} else {
@@ -506,13 +517,13 @@ class ControllerSettingSetting extends Controller {
 
 		foreach ($extensions as $code) {
 			$this->load->language('extension/theme/' . $code);
-			
+
 			$data['themes'][] = array(
 				'text'  => $this->language->get('heading_title'),
 				'value' => $code
 			);
 		}
-			
+
 		if (isset($this->request->post['config_layout_id'])) {
 			$data['config_layout_id'] = $this->request->post['config_layout_id'];
 		} else {
@@ -557,6 +568,16 @@ class ControllerSettingSetting extends Controller {
 			$data['config_telephone'] = $this->request->post['config_telephone'];
 		} else {
 			$data['config_telephone'] = $this->config->get('config_telephone');
+		}
+		if (isset($this->request->post['config_telephone1'])) {
+			$data['config_telephone1'] = $this->request->post['config_telephone1'];
+		} else {
+			$data['config_telephone1'] = $this->config->get('config_telephone1');
+		}
+		if (isset($this->request->post['config_telephone2'])) {
+			$data['config_telephone2'] = $this->request->post['config_telephone2'];
+		} else {
+			$data['config_telephone2'] = $this->config->get('config_telephone2');
 		}
 
 		if (isset($this->request->post['config_fax'])) {
@@ -989,12 +1010,12 @@ class ControllerSettingSetting extends Controller {
 			'text'  => $this->language->get('text_register'),
 			'value' => 'register'
 		);
-		
+
 		$data['captcha_pages'][] = array(
 			'text'  => $this->language->get('text_guest'),
 			'value' => 'guest'
 		);
-		
+
 		$data['captcha_pages'][] = array(
 			'text'  => $this->language->get('text_review'),
 			'value' => 'review'
@@ -1393,6 +1414,12 @@ class ControllerSettingSetting extends Controller {
 		if ((utf8_strlen($this->request->post['config_telephone']) < 3) || (utf8_strlen($this->request->post['config_telephone']) > 32)) {
 			$this->error['telephone'] = $this->language->get('error_telephone');
 		}
+		if ((utf8_strlen($this->request->post['config_telephone1']) < 3) || (utf8_strlen($this->request->post['config_telephone1']) > 32)) {
+			$this->error['telephone1'] = $this->language->get('error_telephone1');
+		}
+		if ((utf8_strlen($this->request->post['config_telephone2']) < 3) || (utf8_strlen($this->request->post['config_telephone2']) > 32)) {
+			$this->error['telephone2'] = $this->language->get('error_telephone2');
+		}
 
 		if (!empty($this->request->post['config_customer_group_display']) && !in_array($this->request->post['config_customer_group_id'], $this->request->post['config_customer_group_display'])) {
 			$this->error['customer_group_display'] = $this->language->get('error_customer_group_display');
@@ -1466,25 +1493,25 @@ class ControllerSettingSetting extends Controller {
 
 		return !$this->error;
 	}
-	
+
 	public function theme() {
 		if ($this->request->server['HTTPS']) {
 			$server = HTTPS_CATALOG;
 		} else {
 			$server = HTTP_CATALOG;
 		}
-		
+
 		// This is only here for compatibility with old themes.
 		if ($this->request->get['theme'] == 'theme_default') {
 			$theme = $this->config->get('theme_default_directory');
 		} else {
 			$theme = basename($this->request->get['theme']);
 		}
-		
+
 		if (is_file(DIR_CATALOG . 'view/theme/' . $theme . '/image/' . $theme . '.png')) {
 			$this->response->setOutput($server . 'catalog/view/theme/' . $theme . '/image/' . $theme . '.png');
 		} else {
 			$this->response->setOutput($server . 'image/no_image.png');
 		}
-	}	
+	}
 }

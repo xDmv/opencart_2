@@ -219,6 +219,8 @@ class ControllerSettingStore extends Controller {
 		$data['entry_geocode'] = $this->language->get('entry_geocode');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
+		$data['entry_telephone1'] = $this->language->get('entry_telephone1');
+		$data['entry_telephone2'] = $this->language->get('entry_telephone2');
 		$data['entry_fax'] = $this->language->get('entry_fax');
 		$data['entry_image'] = $this->language->get('entry_image');
 		$data['entry_open'] = $this->language->get('entry_open');
@@ -317,6 +319,16 @@ class ControllerSettingStore extends Controller {
 			$data['error_telephone'] = $this->error['telephone'];
 		} else {
 			$data['error_telephone'] = '';
+		}
+		if (isset($this->error['telephone1'])) {
+			$data['error_telephone1'] = $this->error['telephone1'];
+		} else {
+			$data['error_telephone1'] = '';
+		}
+		if (isset($this->error['telephone2'])) {
+			$data['error_telephone2'] = $this->error['telephone2'];
+		} else {
+			$data['error_telephone2'] = '';
 		}
 
 		if (isset($this->error['meta_title'])) {
@@ -508,6 +520,20 @@ class ControllerSettingStore extends Controller {
 			$data['config_telephone'] = $store_info['config_telephone'];
 		} else {
 			$data['config_telephone'] = '';
+		}
+		if (isset($this->request->post['config_telephone1'])) {
+			$data['config_telephone1'] = $this->request->post['config_telephone1'];
+		} elseif (isset($store_info['config_telephone1'])) {
+			$data['config_telephone1'] = $store_info['config_telephone1'];
+		} else {
+			$data['config_telephone1'] = '';
+		}
+		if (isset($this->request->post['config_telephone2'])) {
+			$data['config_telephone2'] = $this->request->post['config_telephone2'];
+		} elseif (isset($store_info['config_telephone2'])) {
+			$data['config_telephone2'] = $store_info['config_telephone2'];
+		} else {
+			$data['config_telephone2'] = '';
 		}
 
 		if (isset($this->request->post['config_fax'])) {
@@ -796,6 +822,12 @@ class ControllerSettingStore extends Controller {
 
 		if ((utf8_strlen($this->request->post['config_telephone']) < 3) || (utf8_strlen($this->request->post['config_telephone']) > 32)) {
 			$this->error['telephone'] = $this->language->get('error_telephone');
+		}
+		if ((utf8_strlen($this->request->post['config_telephone1']) < 3) || (utf8_strlen($this->request->post['config_telephone1']) > 32)) {
+			$this->error['telephone1'] = $this->language->get('error_telephone1');
+		}
+		if ((utf8_strlen($this->request->post['config_telephone2']) < 3) || (utf8_strlen($this->request->post['config_telephone2']) > 32)) {
+			$this->error['telephone2'] = $this->language->get('error_telephone2');
 		}
 
 		if (!empty($this->request->post['config_customer_group_display']) && !in_array($this->request->post['config_customer_group_id'], $this->request->post['config_customer_group_display'])) {
