@@ -56,10 +56,10 @@
         <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></li>
         <?php if($telephone1) {?>
           <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone1; ?></span></li>
-        }?>
+        <?php }?>
         <?php if($telephone2) {?>
           <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone2; ?></span></li>
-        }?>
+        <?php }?>
         <li class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span class="caret"></span></a>
           <ul class="dropdown-menu dropdown-menu-right">
             <?php if ($logged) { ?>
@@ -69,8 +69,8 @@
             <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
             <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
             <?php } else { ?>
-            <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
-            <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+            <li><a href="<?php echo $register; ?>"><i class="fa fa-pensil-square-0"></i><?php echo $text_register; ?></a></li>
+            <li><a href="<?php echo $login; ?>"><i class="fa fa-sing-in"></i><?php echo $text_login; ?></a></li>
             <?php } ?>
           </ul>
         </li>

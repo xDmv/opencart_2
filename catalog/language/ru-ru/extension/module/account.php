@@ -5,7 +5,7 @@ $_['heading_title']    = 'Личный кабинет';
 // Text
 $_['text_register']    = 'Регистрация';
 $_['text_login']       = 'Авторизация';
-$_['text_logout']      = 'Выйти';
+$_['text_logout']      = '<i class="fa fa-sing-out"></i> Выйти';
 $_['text_forgotten']   = 'Напомнить пароль';
 $_['text_account']     = 'Личный кабинет';
 $_['text_edit']        = 'Учетная запись';
