@@ -18,7 +18,7 @@ $_['text_shipping_method']  = 'Способ доставки:';
 $_['text_payment_address']  = 'Платёжный адрес';
 $_['text_payment_method']   = 'Способ оплаты:';
 $_['text_comment']          = 'Комментарий к заказу';
-$_['text_history']          = 'История заказов';
+$_['text_history']          = '<i class="fa fa-history"></i> История заказов';
 $_['text_success']          = 'Товар из заказа <a href="%s">%s</a> добавлен в <a href="%s">Вашу корзину</a>!';
 $_['text_empty']            = 'Вы еще не совершали покупок!';
 $_['text_error']            = 'Запрошенный заказ не найден!';

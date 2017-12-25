@@ -10,7 +10,7 @@ $_['text_login']         = 'Авторизация';
 $_['text_order']         = 'История заказов';
 $_['text_transaction']   = 'История платежей';
 $_['text_download']      = 'Файлы для скачивания';
-$_['text_logout']        = '<i class="fa fa-sing-out"></i> Выход';
+$_['text_logout']        = 'Выход';
 $_['text_checkout']      = 'Оформление заказа';
 $_['text_search']        = 'Поиск';
 $_['text_all']           = 'Показать все';
