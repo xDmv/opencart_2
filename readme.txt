@@ -5,3 +5,4 @@ modification (модификации):
 - add telephone1 and add telephone2 in admin and catolog (добавил в админку 2 телефона и отобразить на сайте);
 - user's cabinet (изменение кабинета пользователя);
 - add icon (добавил иконки)
+- add button "+" and "-" for product (добавил кнопки плюса и минуса для указания количества)

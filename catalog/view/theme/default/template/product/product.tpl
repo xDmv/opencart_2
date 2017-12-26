@@ -287,7 +287,10 @@
             <?php } ?>
             <div class="form-group form-inline">
               <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
-              <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control input-lg" />
+            <!--    <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="1" id="input-quantity" class="form-control input-lg" /> -->
+              <span class="my_minus btn btn-primary"><i class="fa fa-minus" aria-hidden="true"></i></span>
+              <input type="text" name="quantity" class="quant form-control" value="1" size="1" style="width: 40px; display: inline;"/>
+              <span class="my_plus btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></span>
               <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
               <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-default btn-lg"><?php echo $button_cart; ?></button>
             </div>
@@ -395,6 +398,24 @@
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+<script type="text/javascript" >
+$(document).ready(function() {
+  $('.my_minus').click(function () {
+    var $input = $(this).parent().find('.quant');
+    var count = parseInt($input.val()) - 1;
+    count = count < 1 ? 1 : count;
+    $input.val(count);
+    $input.change();
+    return false;
+  });
+  $('.my_plus').click(function () {
+    var $input = $(this).parent().find('.quant');
+    $input.val(parseInt($input.val()) + 1);
+    $input.change();
+    return false;
+  });
+});
+</script>
 <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 	$.ajax({
