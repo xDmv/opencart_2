@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <?php if ($informations) { ?>
-      <div class="col-sm-3">
+      <div class="col-sm-3 col-xs-6">
         <h5><?php echo $text_information; ?></h5>
         <ul class="list-unstyled">
           <?php foreach ($informations as $information) { ?>
@@ -11,7 +11,7 @@
         </ul>
       </div>
       <?php } ?>
-      <div class="col-sm-3">
+      <div class="col-sm-3 col-xs-6">
         <h5><?php echo $text_service; ?></h5>
         <ul class="list-unstyled">
           <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
@@ -19,7 +19,7 @@
           <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
         </ul>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-3 col-xs-6">
         <h5><?php echo $text_extra; ?></h5>
         <ul class="list-unstyled">
           <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
@@ -28,7 +28,7 @@
           <li><a href="<?php echo $special; ?>"><?php echo $text_special; ?></a></li>
         </ul>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-3 col-xs-6">
         <h5><?php echo $text_account; ?></h5>
         <ul class="list-unstyled">
           <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
