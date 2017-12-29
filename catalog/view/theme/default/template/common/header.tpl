@@ -102,8 +102,24 @@
       <!--
       <div class="col-sm-5"><?php echo $search; ?>
       </div>
-    -->
+
       <div class="col-sm-3"><?php echo $cart; ?></div>
+      -->
+      <nav class="navbar navbar-default col-sm-8 menu-header">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="visible-xs navbar-span"><?php echo $text_menu_header; ?></span>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <?php echo $links_header; ?>
+        </ul>
+        </div>
+      </nav>
     </div>
   </div>
 </header>
@@ -158,6 +174,7 @@
     <div class="col-sm-3 col-xs-12">
       <a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $title_wishlist; ?>"><i class="fa fa-heart"></i> <span class="total"><?php echo $text_wishlist; ?></span></a>
       <a href="<?php echo $compare; ?>" id="compare-total" title="<?php echo $title_compare; ?>"><i class="fa fa-balance-scale"></i> <span class="total"><?php echo $text_compare; ?></span></a>
+      <?php echo $cart; ?>
     </div>
   </div>
 </nav>

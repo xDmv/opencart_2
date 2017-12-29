@@ -784,3 +784,37 @@ h2 .fa {
 		min-height: 140px;
 	}
 }
+/* Header menu Fix */
+@media (min-width: 768px) {
+	.menu-header {
+		border: none !important;
+		background: #fff !important;
+}
+.menu-header ul li a {
+	font-size: 14px !important;
+	color: #263238 !important;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.menu-header ul li a:hover {
+	color: #00BCD4 !important;
+}
+.menu-header ul li+li:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 14px;
+	width: 0px;
+	height: 20px;
+	border-right: 1px solid #DDD;
+	}
+}
+@media (max-width: 768px) {
+	.menu-header {
+	margin: 0;
+}
+.navbar-span {
+	padding: 14px 0;
+	font-size: 14px;
+	}
+}

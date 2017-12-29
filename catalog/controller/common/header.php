@@ -77,6 +77,7 @@ class ControllerCommonHeader extends Controller {
 		$data['text_all'] = $this->language->get('text_all');
 		$data['title_wishlist'] = $this->language->get('title_wishlist');
 		$data['title_compare'] = $this->language->get('title_compare');
+		$data['text_menu_header'] = $this->language->get('text_menu_header');
 
 		$data['home'] = $this->url->link('common/home');
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
@@ -95,6 +96,8 @@ class ControllerCommonHeader extends Controller {
 		$data['telephone'] = $this->config->get('config_telephone');
 		$data['telephone1'] = $this->config->get('config_telephone1');
 		$data['telephone2'] = $this->config->get('config_telephone2');
+		// header silki
+		$data['links_header'] =  html_entity_decode($this->config->get('theme_default_config_links_header'), ENT_QUOTES, 'UTF-8');
 
 		// Menu
 		$this->load->model('catalog/category');

@@ -28,6 +28,7 @@ $_['entry_image_cart']                 = 'В корзине (Ш x В)';
 $_['entry_image_location']             = 'Изображение магазина (Ш x В)';
 $_['entry_width']                      = 'Ширина';
 $_['entry_height']                     = 'Высота';
+$_['entry_links_header']               = 'Ссылки в шапке';
 
 // Help
 $_['help_directory'] 	               = 'Это поле только для выбора старых шаблонов, что бы сделать их совместимыми с новым движком Opencart.';

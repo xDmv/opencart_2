@@ -239,6 +239,12 @@
                 <?php } ?>
               </div>
             </div>
+            <div class="form-group required">
+              <label class="col-sm-2 control-label" for="input-links-header"><?php echo $entry_links_header; ?></label>
+              <div class="col-sm-10">
+                <textarea name="theme_default_config_links_header" rows="5" placeholder="<?php echo $entry_links_header; ?>" class="form-control"><?php echo $theme_default_config_links_header; ?></textarea>
+              </div>
+            </div>
           </fieldset>
         </form>
       </div>
