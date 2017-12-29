@@ -74,7 +74,9 @@
             <?php } ?>
           </ul>
         </li>
-        <li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>
+<!--
+<li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>
+-->
         <li><a href="<?php echo $shopping_cart; ?>" title="<?php echo $text_shopping_cart; ?>"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_shopping_cart; ?></span></a></li>
         <li><a href="<?php echo $checkout; ?>" title="<?php echo $text_checkout; ?>"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_checkout; ?></span></a></li>
       </ul>
@@ -97,12 +99,15 @@
           <?php } ?>
         </div>
       </div>
+      <!--
       <div class="col-sm-5"><?php echo $search; ?>
       </div>
+    -->
       <div class="col-sm-3"><?php echo $cart; ?></div>
     </div>
   </div>
 </header>
+<!--
 <?php if ($categories) { ?>
 <div class="container">
   <nav id="menu" class="navbar">
@@ -136,3 +141,23 @@
   </nav>
 </div>
 <?php } ?>
+-->
+<nav id="top">
+  <div class="container">
+    <?php if ($categories) { ?>
+      <div class="btn-group category-header col-sm-3 col-xs-12">
+      <button type="button" class="btn btn-navbar" data-toggle="dropdown"><span><?php echo $text_category; ?> <i class="fa fa-bars"></i></span></button>
+        <ul class="dropdown-menu nav col-sm-12 col-xs-12">
+          <?php foreach ($categories as $category) { ?>
+            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+          <?php } ?>
+        </ul>
+      </div>
+    <?php } ?>
+    <div class="col-sm-6 col-xs-12"><?php echo $search; ?></div>
+    <div class="col-sm-3 col-xs-12">
+      <a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $title_wishlist; ?>"><i class="fa fa-heart"></i> <span class="total"><?php echo $text_wishlist; ?></span></a>
+      <a href="<?php echo $compare; ?>" id="compare-total" title="<?php echo $title_compare; ?>"><i class="fa fa-balance-scale"></i> <span class="total"><?php echo $text_compare; ?></span></a>
+    </div>
+  </div>
+</nav>

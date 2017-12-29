@@ -290,7 +290,7 @@ var wishlist = {
 				}
 
 				$('#wishlist-total span').html(json['total']);
-				$('#wishlist-total').attr('title', json['total']);
+				$('#wishlist-total').attr('title');
 
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
 			},
@@ -318,7 +318,7 @@ var compare = {
 					$('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 					$('#compare-total').html(json['total']);
-
+					$('#compare-total').attr('title');
 					$('html, body').animate({ scrollTop: 0 }, 'slow');
 				}
 			},
