@@ -47,6 +47,7 @@
 <?php } ?>
 </head>
 <body class="<?php echo $class; ?>">
+<!--
 <nav id="top">
   <div class="container">
     <?php echo $currency; ?>
@@ -60,6 +61,7 @@
         <?php if($telephone2) {?>
           <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone2; ?></span></li>
         <?php }?>
+
         <li class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span class="caret"></span></a>
           <ul class="dropdown-menu dropdown-menu-right">
             <?php if ($logged) { ?>
@@ -74,19 +76,18 @@
             <?php } ?>
           </ul>
         </li>
-<!--
-<li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>
--->
+        <li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>
         <li><a href="<?php echo $shopping_cart; ?>" title="<?php echo $text_shopping_cart; ?>"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_shopping_cart; ?></span></a></li>
         <li><a href="<?php echo $checkout; ?>" title="<?php echo $text_checkout; ?>"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_checkout; ?></span></a></li>
       </ul>
     </div>
   </div>
 </nav>
+-->
 <header>
   <div class="container">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-3 col-xs-6">
         <div id="logo">
           <?php if ($logo) { ?>
             <?php if ($home == $og_url) { ?>
@@ -105,21 +106,33 @@
 
       <div class="col-sm-3"><?php echo $cart; ?></div>
       -->
-      <nav class="navbar navbar-default col-sm-8 menu-header">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <span class="visible-xs navbar-span"><?php echo $text_menu_header; ?></span>
+
+        <nav class="navbar navbar-default col-sm-6 col-xs-12 menu-header">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <span class="visible-xs navbar-span"><?php echo $text_menu_header; ?></span>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+              <?php echo $links_header; ?>
+          </ul>
+          </div>
+        </nav>
+        <div class="col-sm-3 col-xs-6">
+          <ul class="telephon-menu">
+            <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i> <span ><?php echo $telephone; ?></span></a></li>
+            <?php if($telephone1) {?>
+              <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i> <span ><?php echo $telephone1; ?></span></a></li>
+            <?php }?>
+            <?php if($telephone2) {?>
+              <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i> <span ><?php echo $telephone2; ?></span></a> </li>
+            <?php }?>
+          </ul>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <?php echo $links_header; ?>
-        </ul>
-        </div>
-      </nav>
     </div>
   </div>
 </header>
@@ -161,20 +174,47 @@
 <nav id="top">
   <div class="container">
     <?php if ($categories) { ?>
-      <div class="btn-group category-header col-sm-3 col-xs-12">
+      <div class="btn-group category-header col-sm-2 col-xs-12">
       <button type="button" class="btn btn-navbar" data-toggle="dropdown"><span><?php echo $text_category; ?> <i class="fa fa-bars"></i></span></button>
         <ul class="dropdown-menu nav col-sm-12 col-xs-12">
           <?php foreach ($categories as $category) { ?>
-            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+
+                  <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                  <ul class="list-unstyled">
+                    <?php foreach ($children as $child) { ?>
+                    <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+                    <?php } ?>
+                  </ul>
+                  <?php } ?>
+
+            </li>
           <?php } ?>
         </ul>
       </div>
     <?php } ?>
-    <div class="col-sm-6 col-xs-12"><?php echo $search; ?></div>
-    <div class="col-sm-3 col-xs-12">
-      <a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $title_wishlist; ?>"><i class="fa fa-heart"></i> <span class="total"><?php echo $text_wishlist; ?></span></a>
+    <div class="col-sm-5 col-xs-12"><?php echo $search; ?></div>
+    <div class="col-sm-3 col-xs-12 panel-links">
+      <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $text_account; ?><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <?php if ($logged) { ?>
+          <li><a href="<?php echo $account; ?>"><i class="fa fa-user"></i> <?php echo $text_account; ?></a></li>
+          <li><a href="<?php echo $order; ?>"><i class="fa fa-history"></i> <?php echo $text_order; ?></a></li>
+          <li><a href="<?php echo $transaction; ?>"><i class="fa fa-history"></i> <?php echo $text_transaction; ?></a></li>
+          <li><a href="<?php echo $download; ?>"><i class="fa fa-upload"></i> <?php echo $text_download; ?></a></li>
+          <li><a href="<?php echo $logout; ?>"><i class="fa fa-sign-out"></i> <?php echo $text_logout; ?></a></li>
+          <li><a href="<?php echo $shopping_cart; ?>"><i class="fa fa-shopping-cart"></i> <?php echo $text_shopping_cart; ?></a></li>
+          <li><a href="<?php echo $checkout; ?>"><i class="fa fa-share"></i> <?php echo $text_checkout; ?></a></li>
+        <?php } else { ?>
+          <li><a href="<?php echo $register; ?>"><i class="fa fa-user-plus"></i> <?php echo $text_register; ?></a></li>
+          <li><a href="<?php echo $login; ?>"><i class="fa fa-sign-in"></i> <?php echo $text_login; ?></a></li>
+        <?php } ?>
+      </ul>
       <a href="<?php echo $compare; ?>" id="compare-total" title="<?php echo $title_compare; ?>"><i class="fa fa-balance-scale"></i> <span class="total"><?php echo $text_compare; ?></span></a>
-      <?php echo $cart; ?>
+      <a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $title_wishlist; ?>"><i class="fa fa-heart"></i> <span class="total"><?php echo $text_wishlist; ?></span></a>
+    </div>
+    <div class="col-sm-2 col-xs-12">
+          <?php echo $cart; ?>
     </div>
   </div>
 </nav>
