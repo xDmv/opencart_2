@@ -97,6 +97,7 @@ class ControllerCommonHeader extends Controller {
 		$data['telephone'] = $this->config->get('config_telephone');
 		$data['telephone1'] = $this->config->get('config_telephone1');
 		$data['telephone2'] = $this->config->get('config_telephone2');
+		$data['open'] = nl2br($this->config->get('config_open'));		
 		// header silki
 		$data['links_header'] =  html_entity_decode($this->config->get('theme_default_config_links_header'), ENT_QUOTES, 'UTF-8');
 

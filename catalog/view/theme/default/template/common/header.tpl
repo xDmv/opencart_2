@@ -87,7 +87,7 @@
 <header>
   <div class="container">
     <div class="row">
-      <div class="col-sm-3 col-xs-6">
+      <div class="col-sm-2 col-xs-4">
         <div id="logo">
           <?php if ($logo) { ?>
             <?php if ($home == $og_url) { ?>
@@ -106,8 +106,25 @@
 
       <div class="col-sm-3"><?php echo $cart; ?></div>
       -->
-
-        <nav class="navbar navbar-default col-sm-6 col-xs-12 menu-header">
+      <div class="col-sm-2 col-xs-4">
+        <ul class="telephon-menu">
+          <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i> <span ><?php echo $telephone; ?></span></a></li>
+          <?php if($telephone1) {?>
+            <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i> <span ><?php echo $telephone1; ?></span></a></li>
+          <?php }?>
+          <?php if($telephone2) {?>
+            <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i> <span ><?php echo $telephone2; ?></span></a> </li>
+          <?php }?>
+        </ul>
+      </div>
+      <div class="col-sm-3 col-xs-4">
+        <ul class="nav navbar-nav">
+          <li> <?php if ($open=="") {echo "";}
+          else {echo "<i class='fa fa-clock-o' aria-hidden='true'></i>&nbsp;"; echo $open;} ?>
+          </li>
+        </ul>
+      </div>
+        <nav class="navbar navbar-default col-sm-5 col-xs-12 menu-header">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span class="icon-bar"></span>
@@ -122,17 +139,7 @@
           </ul>
           </div>
         </nav>
-        <div class="col-sm-3 col-xs-6">
-          <ul class="telephon-menu">
-            <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i> <span ><?php echo $telephone; ?></span></a></li>
-            <?php if($telephone1) {?>
-              <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i> <span ><?php echo $telephone1; ?></span></a></li>
-            <?php }?>
-            <?php if($telephone2) {?>
-              <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i> <span ><?php echo $telephone2; ?></span></a> </li>
-            <?php }?>
-          </ul>
-        </div>
+
     </div>
   </div>
 </header>
