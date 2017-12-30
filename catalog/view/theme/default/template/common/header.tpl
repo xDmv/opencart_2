@@ -175,20 +175,23 @@
   <div class="container">
     <?php if ($categories) { ?>
       <div class="btn-group category-header col-sm-2 col-xs-12">
+
       <button type="button" class="btn btn-navbar" data-toggle="dropdown"><span><?php echo $text_category; ?> <i class="fa fa-bars"></i></span></button>
         <ul class="dropdown-menu nav col-sm-12 col-xs-12">
           <?php foreach ($categories as $category) { ?>
-            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-
+            <?php if ($category['children']) { ?>
+            <li class="dropdown-submenu"><a tabindex="-1" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
                   <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-                  <ul class="list-unstyled">
+                  <ul class="dropdown-menu">
                     <?php foreach ($children as $child) { ?>
-                    <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+                    <li><a tabindex="-1" href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
                     <?php } ?>
                   </ul>
                   <?php } ?>
-
             </li>
+            <?php } else { ?>
+              <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+            <?php } ?>
           <?php } ?>
         </ul>
       </div>
