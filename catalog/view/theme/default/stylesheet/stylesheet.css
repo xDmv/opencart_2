@@ -915,7 +915,6 @@ a#wishlist-total{
  	text-decoration: none;
 	color: #263238;
 	font-size: 14px;
-
 }
 .telephon-menu ul, .telephon-menu li{
 	text-decoration: none;
@@ -968,4 +967,7 @@ a#wishlist-total{
   -webkit-border-radius: 6px 0 6px 6px;
   -moz-border-radius: 6px 0 6px 6px;
   border-radius: 6px 0 6px 6px;
+}
+.dropdown-menu > li > a > i.fa{
+	color: #333;
 }
