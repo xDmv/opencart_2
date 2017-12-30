@@ -878,7 +878,7 @@ border-right: 1px solid #DDD;
 }
 .panel-links a {
 	height: 40px;
-	text-align: center;
+	/* text-align: center; */
 	display: inline-block;
 	color: #fff;
 }

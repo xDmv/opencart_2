@@ -198,7 +198,11 @@
     <?php } ?>
     <div class="col-sm-5 col-xs-12"><?php echo $search; ?></div>
     <div class="col-sm-3 col-xs-12 panel-links">
-      <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $text_account; ?><span class="caret"></span></a>
+      <?php if ($logged) { ?>
+        <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a> <?php echo $text_logged; ?>&nbsp<a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+      <?php } else { ?>
+        <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $text_account; ?><span class="caret"></span></a>
+      <?php } ?>
       <ul class="dropdown-menu">
         <?php if ($logged) { ?>
           <li><a href="<?php echo $account; ?>"><i class="fa fa-user"></i> <?php echo $text_account; ?></a></li>
@@ -213,7 +217,7 @@
           <li><a href="<?php echo $login; ?>"><i class="fa fa-sign-in"></i> <?php echo $text_login; ?></a></li>
         <?php } ?>
       </ul>
-      <a href="<?php echo $compare; ?>" id="compare-total" title="<?php echo $title_compare; ?>"><i class="fa fa-balance-scale"></i> <span class="total"><?php echo $text_compare; ?></span></a>
+      <a href="<?php echo $compare; ?>" id="compare-total" title="<?php echo $title_compare; ?>"><i class="fa fa-balance-scale"></i> <span class="total" style="margin-left: 15px;"><?php echo $text_compare; ?></span></a>
       <a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $title_wishlist; ?>"><i class="fa fa-heart"></i> <span class="total"><?php echo $text_wishlist; ?></span></a>
     </div>
     <div class="col-sm-2 col-xs-12">

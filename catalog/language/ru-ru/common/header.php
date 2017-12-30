@@ -19,3 +19,4 @@ $_['text_search']        = 'Поиск';
 $_['text_all']           = 'Показать все';
 $_['text_page']          = 'страница';
 $_['text_menu_header']   = 'Главное меню';
+$_['text_logged'] 		   = '<a href="%s" >%s&nbsp</a>';
