@@ -6,3 +6,4 @@ modification (модификации):
 - user's cabinet (изменение кабинета пользователя);
 - add icon (добавил иконки)
 - add button "+" and "-" for product (добавил кнопки плюса и минуса для указания количества)
+- modification header, all version (изменил шапку для обычной версии и мобильной версии) 
