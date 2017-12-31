@@ -100,51 +100,46 @@
           <?php } ?>
         </div>
       </div>
-      <!--
-      <div class="col-sm-5"><?php echo $search; ?>
-      </div>
 
-      <div class="col-sm-3"><?php echo $cart; ?></div>
-      -->
       <div class="col-lg-5 col-md-5  col-xs-6">
-      <div class="row">
-
-      <div class="col-lg-12 col-md-12 hidden-xs hidden-sm ">
-        <ul class="nav navbar-nav">
-          <li> <?php if ($open=="") {echo "";}
-          else {echo "<i class='fa fa-clock-o' aria-hidden='true'></i><b>Время работы:&nbsp;"; echo $open."</b><br><b style='margin-left: 10px; color:  #ff0000; text-transform: uppercase;'>воскресенье: выходной</b>" ;} ?>
-          </li>
-        </ul>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
-        <span class="telephon-menu">
-          <i class="fa fa-phone"></i> <span ><?php echo $telephone; ?></span>&nbsp;
-
-          <?php if($telephone1) {?>
-            <i class="fa fa-phone"></i> <span ><?php echo $telephone1; ?></span>&nbsp;
-          <?php }?>
-          <?php if($telephone2) {?>
-            <i class="fa fa-phone"></i> <span ><?php echo $telephone2; ?></span>
-          <?php }?>
-        </span>
-      </div>
-      </div>
-      </div>
-        <nav class="navbar navbar-default col-sm-5 col-xs-12 menu-header">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <span class="visible-xs navbar-span"><?php echo $text_menu_header; ?></span>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 hidden-xs hidden-sm ">
+            <ul class="nav navbar-nav">
+              <li> <?php if ($open=="") {echo "";}
+              else {echo "<i class='fa fa-clock-o' aria-hidden='true'></i><b>Время работы:&nbsp;"; echo $open."</b><br><b style='margin-left: 10px; color:  #ff0000; text-transform: uppercase;'>воскресенье: выходной</b>" ;} ?>
+              </li>
+            </ul>
           </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
+            <span class="telephon-menu">
+              <i class="fa fa-phone"></i> <span ><?php echo $telephone; ?></span>&nbsp;
+
+              <?php if($telephone1) {?>
+                <i class="fa fa-phone"></i> <span ><?php echo $telephone1; ?></span>&nbsp;
+              <?php }?>
+              <?php if($telephone2) {?>
+                <i class="fa fa-phone"></i> <span ><?php echo $telephone2; ?></span>
+              <?php }?>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-default col-sm-5 col-xs-12 menu-header">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="visible-xs navbar-span"><?php echo $text_menu_header; ?></span>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
               <?php echo $links_header; ?>
           </ul>
-          </div>
-        </nav>
+        </div>
+      </nav>
 
     </div>
   </div>
@@ -173,25 +168,46 @@
         </ul>
       </div>
       <div class="btn-group category-header col-sm-12 col-xs-12 hidden-lg hidden-mg" style="margin-bottom: 10px !important;">
-      <button type="button" class="btn btn-navbar" data-toggle="dropdown"><span><?php echo $text_category; ?> <i class="fa fa-bars"></i></span></button>
-        <ul class="dropdown-menu nav">
-          <?php $i=0; foreach ($categories as $category) { ?>
-            <?php if ($category['children']) { $i++;?>
 
-            <li><a <?php echo "class='collapsed fa fa-chevron-down' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse_$i' aria-expanded='false' aria-controls='collapse_$i'"; ?> tabindex="-1" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-                <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-                  <?php echo "<ul id='collapse_$i' class='collapse' role='tabpanel' aria-labelledby='heading_$i'>"; ?>
-                    <?php foreach ($children as $child) { ?>
-                    <li><a tabindex="-1" href="<?php echo $child['href']; ?>"> <?php echo $child['name']; ?></a></li>
-                    <?php } ?>
-                  </ul>
-                <?php } ?>
-            </li>
-            <?php } else { ?>
-              <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-            <?php } ?>
-          <?php } echo $i;?>
-        </ul>
+      <button type="button" class="btn btn-navbar" data-toggle="modal" data-target="#modal-1"><span><?php echo $text_category; ?> <i class="fa fa-bars"></i></span></button>
+      <div class="modal" id="modal-1">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <b aria-hidden="true">&times;</b>
+              </button>
+              <h5 class="modal-title"><?php echo $text_category; ?></h5>
+            </div>
+            <div class="modal-body">
+              <ul class="nav">
+                <?php $i=0; foreach ($categories as $category) { ?>
+
+                  <?php if ($category['children']) { $i++;?>
+
+                  <li class="open_down"><b <?php echo "class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse_$i' aria-expanded='false' aria-controls='collapse_$i'"; ?> tabindex="-1" ><?php echo $category['name']; ?></b></li>
+
+                        <?php echo "<ul id='collapse_$i' class='collapse' role='tabpanel' aria-labelledby='heading_$i'>"; ?>
+                          <li class="mod"><a tabindex="-1" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                          <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                          <?php foreach ($children as $child) { ?>
+                          <li class="mod"><a tabindex="-1" href="<?php echo $child['href']; ?>"> <?php echo $child['name']; ?></a></li>
+                          <?php } ?>
+                        </ul>
+                      <?php } ?>
+
+                  <?php } else { ?>
+                    <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                  <?php } ?>
+
+                <?php }?>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       </div>
     <?php } ?>
     <div class="col-sm-5 col-xs-12"><?php echo $search; ?></div>

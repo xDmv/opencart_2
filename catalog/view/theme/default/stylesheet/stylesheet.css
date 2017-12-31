@@ -909,7 +909,7 @@ a#wishlist-total{
 	font-size: 14px;
 	position: absolute;
 	top: -5px;
-	padding-left: 5px;
+	padding-left: 20px;
 	color: #fff;
 }
 .panel-links .caret {
@@ -978,3 +978,33 @@ a#wishlist-total{
 .dropdown-menu > li > a > i.fa{
 	color: #333;
 }
+.nav>li>b{
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	color: #23a1d1;
+}
+li.mod{
+	text-decoration: none;
+	list-style: none;
+}
+li.open_down{
+
+}
+.nav>li>b.collapsed::before{
+	/* font-family: 'simple-line-icons';*/
+	font-family: 'FontAwesome';
+	display: inline-block;
+	float: right;
+	text-decoration: inherit;
+	content: "\f078";
+}
+
+.nav>li>b::before{
+		/*font-family: 'simple-line-icons';*/
+		font-family: 'FontAwesome';
+		display: inline-block;
+		float: right;
+		text-decoration: inherit;
+		content: "\f077";
+	}
