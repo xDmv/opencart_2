@@ -110,7 +110,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-11">
             <span class="telephon-menu">
               <i class="fa fa-phone"></i> <span ><?php echo $telephone; ?></span>&nbsp;
 
@@ -177,7 +177,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <b aria-hidden="true">&times;</b>
               </button>
-              <h5 class="modal-title"><?php echo $text_category; ?></h5>
+              <h3 class="modal-title"><center><?php echo $text_category; ?></center></h3>
             </div>
             <div class="modal-body">
               <ul class="nav">

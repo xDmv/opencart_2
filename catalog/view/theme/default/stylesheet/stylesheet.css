@@ -978,7 +978,7 @@ a#wishlist-total{
 .dropdown-menu > li > a > i.fa{
 	color: #333;
 }
-.nav>li>b{
+.nav>li.open_down>b{
 	position: relative;
 	display: block;
 	padding: 10px 15px;
@@ -991,7 +991,7 @@ li.mod{
 li.open_down{
 
 }
-.nav>li>b.collapsed::before{
+.nav>li.open_down>b.collapsed::before{
 	/* font-family: 'simple-line-icons';*/
 	font-family: 'FontAwesome';
 	display: inline-block;
@@ -1000,7 +1000,7 @@ li.open_down{
 	content: "\f078";
 }
 
-.nav>li>b::before{
+.nav>li.open_down>b::before{
 		/*font-family: 'simple-line-icons';*/
 		font-family: 'FontAwesome';
 		display: inline-block;
