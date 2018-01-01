@@ -156,7 +156,19 @@
                   <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
                   <ul class="dropdown-menu">
                     <?php foreach ($children as $child) { ?>
-                    <li><a tabindex="-1" href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+                    <?php if (isset($child['children_lv3']) && $child['children_lv3']) { ?>
+                              <li class="dropdown-submenu"><a tabindex="-1"  href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                    <?php foreach (array_chunk($child['children_lv3'], ceil(count($child['children_lv3']) / $child['column'])) as $children_lv3) { ?>
+                                      <ul class="dropdown-menu">
+                                        <?php foreach ($children_lv3 as $child_lv3) { ?>
+                                            <li><a href="<?php echo $child_lv3['href']; ?>"><?php echo $child_lv3['name']; ?></a></li>
+                                            <?php } ?>
+                                        </ul>
+                                      <?php } ?>
+                                  </li>
+                              <?php } else { ?>
+                                <li><a tabindex="-1"  href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+                              <?php } ?>
                     <?php } ?>
                   </ul>
                   <?php } ?>
@@ -175,13 +187,13 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <b aria-hidden="true">&times;</b>
+                <b style="font-size: 30px;" aria-hidden="true">&times;</b>
               </button>
               <h3 class="modal-title"><center><?php echo $text_category; ?></center></h3>
             </div>
             <div class="modal-body">
               <ul class="nav">
-                <?php $i=0; foreach ($categories as $category) { ?>
+                <?php $i=0; $j=100; foreach ($categories as $category) { ?>
 
                   <?php if ($category['children']) { $i++;?>
 
@@ -190,8 +202,20 @@
                         <?php echo "<ul id='collapse_$i' class='collapse' role='tabpanel' aria-labelledby='heading_$i'>"; ?>
                           <li class="mod"><a tabindex="-1" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
                           <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-                          <?php foreach ($children as $child) { ?>
-                          <li class="mod"><a tabindex="-1" href="<?php echo $child['href']; ?>"> <?php echo $child['name']; ?></a></li>
+                            <?php foreach ($children as $child) { $j++;?>
+                              <?php if (isset($child['children_lv3']) && $child['children_lv3']) { ?>
+                                <li class="mod open_down"><b <?php echo "class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse_$j' aria-expanded='false' aria-controls='collapse_$j'"; ?> tabindex="-1" ><?php echo $child['name']; ?></b>
+                                  <?php foreach (array_chunk($child['children_lv3'], ceil(count($child['children_lv3']) / $child['column'])) as $children_lv3) { ?>
+                                    <?php echo "<ul id='collapse_$j' class='collapse' role='tabpanel' aria-labelledby='heading_$j'>"; ?>
+                                      <?php foreach ($children_lv3 as $child_lv3) { ?>
+                                        <li class="mod"><a tabindex="-1" href="<?php echo $child_lv3['href']; ?>"><?php echo $child_lv3['name']; ?></a></li>
+                                      <?php } ?>
+                                    </ul>
+                                  <?php } ?>
+                                </li>
+                              <?php } else { ?>
+                                <li class="mod"><a tabindex="-1" href="<?php echo $child['href']; ?>"> <?php echo $child['name']; ?></a></li>
+                              <?php } ?>
                           <?php } ?>
                         </ul>
                       <?php } ?>

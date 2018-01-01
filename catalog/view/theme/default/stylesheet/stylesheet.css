@@ -988,10 +988,8 @@ li.mod{
 	text-decoration: none;
 	list-style: none;
 }
-li.open_down{
 
-}
-.nav>li.open_down>b.collapsed::before{
+.open_down>b.collapsed::before{
 	/* font-family: 'simple-line-icons';*/
 	font-family: 'FontAwesome';
 	display: inline-block;
@@ -1000,7 +998,7 @@ li.open_down{
 	content: "\f078";
 }
 
-.nav>li.open_down>b::before{
+.open_down>b::before{
 		/*font-family: 'simple-line-icons';*/
 		font-family: 'FontAwesome';
 		display: inline-block;
