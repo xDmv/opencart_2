@@ -9,3 +9,4 @@ modification (модификации):
 - modification header, all version (изменил шапку для обычной версии и мобильной версии);
 - add 3 level Menu product (создано 3 уровневое меню);
 - add seach from model in admin product (в админке можно искать по коду товара в разделе "Товары")
+- modification button shopping-cart, heart and balance-scale (изменен стиль кнопок купить, сравнить, закладки)

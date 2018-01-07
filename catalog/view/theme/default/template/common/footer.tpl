@@ -1,6 +1,7 @@
 <footer>
   <div class="container">
     <div class="row">
+      <!-- -->
       <?php if ($informations) { ?>
       <div class="col-sm-3 col-xs-6">
         <h5><?php echo $text_information; ?></h5>
@@ -37,9 +38,10 @@
           <li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>
         </ul>
       </div>
+
     </div>
     <hr>
-    <p><center>&copy;&nbsp;	<?php echo "2011-"; echo date('Y'); ?>
+    <p><center>&copy;&nbsp;	<?php echo "2010-"; echo date('Y'); ?>
   	Интернет-магазин &reg;US3. Все права защищены.</br>Любое копирование материалов только с разрешения владельца сайта.
   	</center></p>
 <!--
