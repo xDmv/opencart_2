@@ -100,7 +100,6 @@
           <?php } ?>
         </div>
       </div>
-
       <div class="col-lg-5 col-md-5  col-xs-6">
         <div class="row">
           <div class="col-lg-12 col-md-12 hidden-xs hidden-sm ">
@@ -113,7 +112,6 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-11">
             <span class="telephon-menu">
               <i class="fa fa-phone"></i> <span ><?php echo $telephone; ?></span>&nbsp;
-
               <?php if($telephone1) {?>
                 <i class="fa fa-phone"></i> <span ><?php echo $telephone1; ?></span>&nbsp;
               <?php }?>
@@ -124,7 +122,6 @@
           </div>
         </div>
       </div>
-
       <nav class="navbar navbar-default col-sm-5 col-xs-12 menu-header">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -140,126 +137,117 @@
           </ul>
         </div>
       </nav>
-
     </div>
   </div>
-</header>
-<nav id="top">
-  <div class="container">
-    <?php if ($categories) { ?>
-      <div class="btn-group category-header col-md-2 hidden-xs hidden-sm">
-      <button type="button" class="btn btn-navbar" data-toggle="dropdown"><span><?php echo $text_category; ?> <i class="fa fa-bars"></i></span></button>
-        <ul class="dropdown-menu nav col-sm-12 col-xs-12">
-          <?php foreach ($categories as $category) { ?>
-            <?php if ($category['children']) { ?>
-            <li class="dropdown-submenu"><a tabindex="-1" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-                  <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-                  <ul class="dropdown-menu">
-                    <?php foreach ($children as $child) { ?>
-                    <?php if (isset($child['children_lv3']) && $child['children_lv3']) { ?>
-                              <li class="dropdown-submenu"><a tabindex="-1"  href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
-                                    <?php foreach (array_chunk($child['children_lv3'], ceil(count($child['children_lv3']) / $child['column'])) as $children_lv3) { ?>
-                                      <ul class="dropdown-menu">
-                                        <?php foreach ($children_lv3 as $child_lv3) { ?>
-                                            <li><a href="<?php echo $child_lv3['href']; ?>"><?php echo $child_lv3['name']; ?></a></li>
-                                            <?php } ?>
-                                        </ul>
-                                      <?php } ?>
-                                  </li>
-                              <?php } else { ?>
-                                <li><a tabindex="-1"  href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
-                              <?php } ?>
-                    <?php } ?>
-                  </ul>
-                  <?php } ?>
-            </li>
-            <?php } else { ?>
-              <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-            <?php } ?>
-          <?php } ?>
-        </ul>
-      </div>
-      <div class="btn-group category-header col-sm-12 col-xs-12 hidden-lg hidden-mg" style="margin-bottom: 10px !important;">
-
-      <button type="button" class="btn btn-navbar" data-toggle="modal" data-target="#modal-1"><span><?php echo $text_category; ?> <i class="fa fa-bars"></i></span></button>
-      <div class="modal" id="modal-1">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <b style="font-size: 30px;" aria-hidden="true">&times;</b>
-              </button>
-              <h3 class="modal-title"><center><?php echo $text_category; ?></center></h3>
-            </div>
-            <div class="modal-body">
-              <ul class="nav">
-                <?php $i=0; $j=100; foreach ($categories as $category) { ?>
-
-                  <?php if ($category['children']) { $i++;?>
-
-                  <li class="open_down"><b <?php echo "class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse_$i' aria-expanded='false' aria-controls='collapse_$i'"; ?> tabindex="-1" ><?php echo $category['name']; ?></b></li>
-
-                        <?php echo "<ul id='collapse_$i' class='collapse' role='tabpanel' aria-labelledby='heading_$i'>"; ?>
-                          <li class="mod"><a tabindex="-1" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-                          <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-                            <?php foreach ($children as $child) { $j++;?>
-                              <?php if (isset($child['children_lv3']) && $child['children_lv3']) { ?>
-                                <li class="mod open_down"><b <?php echo "class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse_$j' aria-expanded='false' aria-controls='collapse_$j'"; ?> tabindex="-1" ><?php echo $child['name']; ?></b>
-                                  <?php foreach (array_chunk($child['children_lv3'], ceil(count($child['children_lv3']) / $child['column'])) as $children_lv3) { ?>
-                                    <?php echo "<ul id='collapse_$j' class='collapse' role='tabpanel' aria-labelledby='heading_$j'>"; ?>
-                                      <?php foreach ($children_lv3 as $child_lv3) { ?>
-                                        <li class="mod"><a tabindex="-1" href="<?php echo $child_lv3['href']; ?>"><?php echo $child_lv3['name']; ?></a></li>
-                                      <?php } ?>
-                                    </ul>
-                                  <?php } ?>
-                                </li>
-                              <?php } else { ?>
-                                <li class="mod"><a tabindex="-1" href="<?php echo $child['href']; ?>"> <?php echo $child['name']; ?></a></li>
-                              <?php } ?>
-                          <?php } ?>
-                        </ul>
+  <nav id="top">
+    <div class="container">
+      <?php if ($categories) { ?>
+        <div class="btn-group category-header col-md-2 hidden-xs hidden-sm">
+        <button type="button" class="btn btn-navbar" data-toggle="dropdown"><span><?php echo $text_category; ?> <i class="fa fa-bars"></i></span></button>
+          <ul class="dropdown-menu nav col-sm-12 col-xs-12">
+            <?php foreach ($categories as $category) { ?>
+              <?php if ($category['children']) { ?>
+              <li class="dropdown-submenu"><a tabindex="-1" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+                    <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                    <ul class="dropdown-menu">
+                      <?php foreach ($children as $child) { ?>
+                      <?php if (isset($child['children_lv3']) && $child['children_lv3']) { ?>
+                                <li class="dropdown-submenu"><a tabindex="-1"  href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                      <?php foreach (array_chunk($child['children_lv3'], ceil(count($child['children_lv3']) / $child['column'])) as $children_lv3) { ?>
+                                        <ul class="dropdown-menu">
+                                          <?php foreach ($children_lv3 as $child_lv3) { ?>
+                                              <li><a href="<?php echo $child_lv3['href']; ?>"><?php echo $child_lv3['name']; ?></a></li>
+                                              <?php } ?>
+                                          </ul>
+                                        <?php } ?>
+                                    </li>
+                                <?php } else { ?>
+                                  <li><a tabindex="-1"  href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+                                <?php } ?>
                       <?php } ?>
-
-                  <?php } else { ?>
-                    <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-                  <?php } ?>
-
-                <?php }?>
-              </ul>
+                    </ul>
+                    <?php } ?>
+              </li>
+              <?php } else { ?>
+                <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+              <?php } ?>
+            <?php } ?>
+          </ul>
+        </div>
+        <div class="btn-group category-header col-sm-12 col-xs-12 hidden-lg hidden-mg" style="margin-bottom: 10px !important;">
+        <button type="button" class="btn btn-navbar" data-toggle="modal" data-target="#modal-1"><span><?php echo $text_category; ?> <i class="fa fa-bars"></i></span></button>
+        <div class="modal" id="modal-1">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <b style="font-size: 30px;" aria-hidden="true">&times;</b>
+                </button>
+                <h3 class="modal-title"><center><?php echo $text_category; ?></center></h3>
+              </div>
+              <div class="modal-body">
+                <ul class="nav">
+                  <?php $i=0; $j=100; foreach ($categories as $category) { ?>
+                    <?php if ($category['children']) { $i++;?>
+                    <li class="open_down"><b <?php echo "class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse_$i' aria-expanded='false' aria-controls='collapse_$i'"; ?> tabindex="-1" ><?php echo $category['name']; ?></b></li>
+                          <?php echo "<ul id='collapse_$i' class='collapse' role='tabpanel' aria-labelledby='heading_$i'>"; ?>
+                            <li class="mod"><a tabindex="-1" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                            <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                              <?php foreach ($children as $child) { $j++;?>
+                                <?php if (isset($child['children_lv3']) && $child['children_lv3']) { ?>
+                                  <li class="mod open_down"><b <?php echo "class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse_$j' aria-expanded='false' aria-controls='collapse_$j'"; ?> tabindex="-1" ><?php echo $child['name']; ?></b>
+                                    <?php foreach (array_chunk($child['children_lv3'], ceil(count($child['children_lv3']) / $child['column'])) as $children_lv3) { ?>
+                                      <?php echo "<ul id='collapse_$j' class='collapse' role='tabpanel' aria-labelledby='heading_$j'>"; ?>
+                                        <?php foreach ($children_lv3 as $child_lv3) { ?>
+                                          <li class="mod"><a tabindex="-1" href="<?php echo $child_lv3['href']; ?>"><?php echo $child_lv3['name']; ?></a></li>
+                                        <?php } ?>
+                                      </ul>
+                                    <?php } ?>
+                                  </li>
+                                <?php } else { ?>
+                                  <li class="mod"><a tabindex="-1" href="<?php echo $child['href']; ?>"> <?php echo $child['name']; ?></a></li>
+                                <?php } ?>
+                            <?php } ?>
+                          </ul>
+                        <?php } ?>
+                    <?php } else { ?>
+                      <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                    <?php } ?>
+                  <?php }?>
+                </ul>
+              </div>
             </div>
-
           </div>
         </div>
-      </div>
-
-      </div>
-    <?php } ?>
-    <div class="col-sm-5 col-xs-12"><?php echo $search; ?></div>
-    <div class="col-sm-3 col-xs-12 panel-links">
-      <?php if ($logged) { ?>
-        <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a> <?php echo $text_logged; ?>&nbsp<a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-      <?php } else { ?>
-        <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $text_account; ?><span class="caret"></span></a>
+        </div>
       <?php } ?>
-      <ul class="dropdown-menu">
+      <div class="col-sm-5 col-xs-12"><?php echo $search; ?></div>
+      <div class="col-sm-3 col-xs-12 panel-links">
         <?php if ($logged) { ?>
-          <li><a href="<?php echo $account; ?>"><i class="fa fa-user"></i> <?php echo $text_account; ?></a></li>
-          <li><a href="<?php echo $order; ?>"><i class="fa fa-history"></i> <?php echo $text_order; ?></a></li>
-          <li><a href="<?php echo $transaction; ?>"><i class="fa fa-history"></i> <?php echo $text_transaction; ?></a></li>
-          <li><a href="<?php echo $download; ?>"><i class="fa fa-upload"></i> <?php echo $text_download; ?></a></li>
-          <li><a href="<?php echo $logout; ?>"><i class="fa fa-sign-out"></i> <?php echo $text_logout; ?></a></li>
-          <li><a href="<?php echo $shopping_cart; ?>"><i class="fa fa-shopping-cart"></i> <?php echo $text_shopping_cart; ?></a></li>
-          <li><a href="<?php echo $checkout; ?>"><i class="fa fa-share"></i> <?php echo $text_checkout; ?></a></li>
+          <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a> <?php echo $text_logged; ?>&nbsp<a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
         <?php } else { ?>
-          <li><a href="<?php echo $register; ?>"><i class="fa fa-user-plus"></i> <?php echo $text_register; ?></a></li>
-          <li><a href="<?php echo $login; ?>"><i class="fa fa-sign-in"></i> <?php echo $text_login; ?></a></li>
+          <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $text_account; ?><span class="caret"></span></a>
         <?php } ?>
-      </ul>
-      <a href="<?php echo $compare; ?>" id="compare-total" title="<?php echo $title_compare; ?>"><i class="fa fa-balance-scale"></i> <span class="total1"><?php echo $text_compare; ?></span></a>
-      <a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $title_wishlist; ?>"><i class="fa fa-heart"></i> <span class="total"><?php echo $text_wishlist; ?></span></a>
+        <ul class="dropdown-menu">
+          <?php if ($logged) { ?>
+            <li><a href="<?php echo $account; ?>"><i class="fa fa-user"></i> <?php echo $text_account; ?></a></li>
+            <li><a href="<?php echo $order; ?>"><i class="fa fa-history"></i> <?php echo $text_order; ?></a></li>
+            <li><a href="<?php echo $transaction; ?>"><i class="fa fa-history"></i> <?php echo $text_transaction; ?></a></li>
+            <li><a href="<?php echo $download; ?>"><i class="fa fa-upload"></i> <?php echo $text_download; ?></a></li>
+            <li><a href="<?php echo $logout; ?>"><i class="fa fa-sign-out"></i> <?php echo $text_logout; ?></a></li>
+            <li><a href="<?php echo $shopping_cart; ?>"><i class="fa fa-shopping-cart"></i> <?php echo $text_shopping_cart; ?></a></li>
+            <li><a href="<?php echo $checkout; ?>"><i class="fa fa-share"></i> <?php echo $text_checkout; ?></a></li>
+          <?php } else { ?>
+            <li><a href="<?php echo $register; ?>"><i class="fa fa-user-plus"></i> <?php echo $text_register; ?></a></li>
+            <li><a href="<?php echo $login; ?>"><i class="fa fa-sign-in"></i> <?php echo $text_login; ?></a></li>
+          <?php } ?>
+        </ul>
+        <a href="<?php echo $compare; ?>" id="compare-total" title="<?php echo $title_compare; ?>"><i class="fa fa-balance-scale"></i> <span class="total1"><?php echo $text_compare; ?></span></a>
+        <a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $title_wishlist; ?>"><i class="fa fa-heart"></i> <span class="total"><?php echo $text_wishlist; ?></span></a>
+      </div>
+      <div class="col-sm-2 col-xs-12">
+            <?php echo $cart; ?>
+      </div>
     </div>
-    <div class="col-sm-2 col-xs-12">
-          <?php echo $cart; ?>
-    </div>
-  </div>
-</nav>
+  </nav>
+</header>
