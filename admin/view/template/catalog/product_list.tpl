@@ -59,8 +59,8 @@
                 <input type="text" name="filter_price" value="<?php echo $filter_price; ?>" placeholder="<?php echo $entry_price; ?>" id="input-price" class="form-control" />
               </div>
               <div class="form-group">
-                <label class="control-label" for="input-quantity"><?php echo $entry_quantity; ?></label>
-                <input type="text" name="filter_quantity" value="<?php echo $filter_quantity; ?>" placeholder="<?php echo $entry_quantity; ?>" id="input-quantity" class="form-control" />
+                <label class="control-label" for="input-quantity">Код товара (Model)</label>
+                <input type="text" name="filter_model" value="<?php echo $filter_model; ?>" placeholder="Код товара" id="input-quantity" class="form-control" />
               </div>
             </div>
             <div class="col-sm-4">
