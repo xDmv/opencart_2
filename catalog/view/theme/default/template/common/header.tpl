@@ -234,7 +234,8 @@
 
       </div>
     <?php } ?>
-    <div class="col-sm-5 col-xs-12"><?php echo $search; ?></div>
+    <div class="col-md-5 col-sm-5 col-xs-12"><?php echo $search; ?>
+    </div>
     <div class="col-sm-3 col-xs-12 panel-links">
       <?php if ($logged) { ?>
         <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a> <?php echo $text_logged; ?>&nbsp<a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
