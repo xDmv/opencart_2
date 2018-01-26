@@ -155,8 +155,27 @@
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-price"><?php echo $entry_price; ?></label>
-                <div class="col-sm-10">
-                  <input type="text" name="price" value="<?php echo $price; ?>" placeholder="<?php echo $entry_price; ?>" id="input-price" class="form-control" />
+                <div class="col-sm-2">
+                  <div class="input-group">
+                    <div class="input-group">
+                      <input type="text" disabled name="price" value="<?php echo $price; ?>" placeholder="<?php echo $entry_price; ?>" id="input-price" class="form-control" />
+                      <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                    </div>
+                  </div>
+                </div>
+                <label class="col-sm-2 control-label" for="input-price"><?php echo $entry_price0; ?></label>
+                <div class="col-sm-2">
+                  <div class="input-group">
+                    <input type="text" name="price" value="<?php echo $price0; ?>" placeholder="<?php echo $entry_price0; ?>" class="form-control" />
+                    <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+                <label class="col-sm-2 control-label" for="input-price"><?php echo $entry_pricep; ?></label>
+                <div class="col-sm-2">
+                  <div class="input-group">
+                    <input type="text" disabled name="price" value="<?php echo $price-$price0; ?>" placeholder="<?php echo $entry_pricep; ?>" class="form-control" />
+                    <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                  </div>
                 </div>
               </div>
               <div class="form-group">

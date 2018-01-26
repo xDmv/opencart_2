@@ -127,6 +127,12 @@ class ModelCatalogProduct extends Model {
 				$this->db->query("INSERT INTO `" . DB_PREFIX . "product_recurring` SET `product_id` = " . (int)$product_id . ", customer_group_id = " . (int)$recurring['customer_group_id'] . ", `recurring_id` = " . (int)$recurring['recurring_id']);
 			}
 		}
+		$this->db->query("
+			Update " . DB_PREFIX . "product, " . DB_PREFIX . "product_to_category Set
+			" . DB_PREFIX . "product.price = " . DB_PREFIX . "product.price0 * (Select Procent From " . DB_PREFIX . "editprice_category where id = " . (int)$category_id . ") / 100
+			+ (Select Cheslo From " . DB_PREFIX . "editprice_category where id = " . (int)$category_id . ") + " . DB_PREFIX . "product.price0
+			Where " . DB_PREFIX . "product.product_id = " . DB_PREFIX . "product_to_category.product_id and " . DB_PREFIX . "product_to_category.category_id = " . (int)$category_id . " and " . DB_PREFIX . "product.product_id = " . (int)$product_id . ";
+		");
 
 		$this->cache->delete('product');
 
@@ -288,6 +294,23 @@ class ModelCatalogProduct extends Model {
 				$this->db->query("INSERT INTO `" . DB_PREFIX . "product_recurring` SET `product_id` = " . (int)$product_id . ", customer_group_id = " . (int)$product_recurring['customer_group_id'] . ", `recurring_id` = " . (int)$product_recurring['recurring_id']);
 			}
 		}
+/*
+print_r("
+	Update " . DB_PREFIX . "product, " . DB_PREFIX . "product_to_category Set
+	" . DB_PREFIX . "product.price = " . DB_PREFIX . "product.price0 * (Select Procent From " . DB_PREFIX . "editprice_category where id = " . (int)$category_id . ") / 100
+	+ (Select Cheslo From " . DB_PREFIX . "editprice_category where id = " . (int)$category_id . ") + " . DB_PREFIX . "product.price0
+	Where " . DB_PREFIX . "product.product_id = " . DB_PREFIX . "product_to_category.product_id and " . DB_PREFIX . "product_to_category.category_id = " . (int)$category_id . " and " . DB_PREFIX . "product.product_id = " . (int)$product_id . ";
+"
+
+);
+exit;
+*/
+		$this->db->query("
+			Update " . DB_PREFIX . "product, " . DB_PREFIX . "product_to_category Set
+			" . DB_PREFIX . "product.price = " . DB_PREFIX . "product.price0 * (Select Procent From " . DB_PREFIX . "editprice_category where id = " . (int)$category_id . ") / 100
+			+ (Select Cheslo From " . DB_PREFIX . "editprice_category where id = " . (int)$category_id . ") + " . DB_PREFIX . "product.price0
+			Where " . DB_PREFIX . "product.product_id = " . DB_PREFIX . "product_to_category.product_id and " . DB_PREFIX . "product_to_category.category_id = " . (int)$category_id . " and " . DB_PREFIX . "product.product_id = " . (int)$product_id . ";
+		");
 
 		$this->cache->delete('product');
 	}

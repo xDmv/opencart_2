@@ -639,6 +639,8 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_quantity'] = $this->language->get('entry_quantity');
 		$data['entry_stock_status'] = $this->language->get('entry_stock_status');
 		$data['entry_price'] = $this->language->get('entry_price');
+		$data['entry_price0'] = $this->language->get('entry_price0');
+		$data['entry_pricep'] = $this->language->get('entry_pricep');
 		$data['entry_tax_class'] = $this->language->get('entry_tax_class');
 		$data['entry_points'] = $this->language->get('entry_points');
 		$data['entry_option_points'] = $this->language->get('entry_option_points');
@@ -950,6 +952,14 @@ class ControllerCatalogProduct extends Controller {
 			$data['price'] = $product_info['price'];
 		} else {
 			$data['price'] = '';
+		}
+
+		if (isset($this->request->post['price0'])) {
+			$data['price0'] = $this->request->post['price0'];
+		} elseif (!empty($product_info)) {
+			$data['price0'] = $product_info['price0'];
+		} else {
+			$data['price0'] = '';
 		}
 
 		$this->load->model('catalog/recurring');
@@ -1292,7 +1302,7 @@ class ControllerCatalogProduct extends Controller {
 				'date_end'          => ($product_special['date_end'] != '0000-00-00') ? $product_special['date_end'] :  ''
 			);
 		}
-		
+
 		// Image
 		if (isset($this->request->post['image'])) {
 			$data['image'] = $this->request->post['image'];

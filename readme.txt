@@ -8,6 +8,7 @@ modification (модификации):
 - add button "+" and "-" for product (добавил кнопки плюса и минуса для указания количества);
 - modification header, all version (изменил шапку для обычной версии и мобильной версии);
 - add 3 level Menu product (создано 3 уровневое меню);
-- add seach from model in admin product (в админке можно искать по коду товара в разделе "Товары")
-- modification button shopping-cart, heart and balance-scale (изменен стиль кнопок купить, сравнить, закладки)
-- modification text editor on TinyMCE (замена стандартного текстового редактора на TinyMCE)
+- add seach from model in admin product (в админке можно искать по коду товара в разделе "Товары");
+- modification button shopping-cart, heart and balance-scale (изменен стиль кнопок купить, сравнить, закладки);
+- modification text editor on TinyMCE (замена стандартного текстового редактора на TinyMCE);
+- modification product in admin (добавил отображение закупочной цены, для клиента цены и ожидаемой прибыли);
