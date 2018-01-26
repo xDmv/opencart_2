@@ -210,11 +210,11 @@
                 <div class="col-sm-10">
                   <select name="subtract" id="input-subtract" class="form-control">
                     <?php if ($subtract) { ?>
-                    <option value="1" selected="selected"><?php echo $text_yes; ?></option>
-                    <option value="0"><?php echo $text_no; ?></option>
-                    <?php } else { ?>
                     <option value="1"><?php echo $text_yes; ?></option>
                     <option value="0" selected="selected"><?php echo $text_no; ?></option>
+                    <?php } else { ?>
+                    <option value="1" selected="selected"><?php echo $text_yes; ?></option>
+                    <option value="0"><?php echo $text_no; ?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -637,8 +637,8 @@
                               <td class="text-right"><input type="text" name="product_option[<?php echo $option_row; ?>][product_option_value][<?php echo $option_value_row; ?>][quantity]" value="<?php echo $product_option_value['quantity']; ?>" placeholder="<?php echo $entry_quantity; ?>" class="form-control" /></td>
                               <td class="text-left"><select name="product_option[<?php echo $option_row; ?>][product_option_value][<?php echo $option_value_row; ?>][subtract]" class="form-control">
                                   <?php if ($product_option_value['subtract']) { ?>
-                                  <option value="1" selected="selected"><?php echo $text_yes; ?></option>
-                                  <option value="0"><?php echo $text_no; ?></option>
+                                  <option value="1"><?php echo $text_yes; ?></option>
+                                  <option value="0" selected="selected"><?php echo $text_no; ?></option>
                                   <?php } else { ?>
                                   <option value="1"><?php echo $text_yes; ?></option>
                                   <option value="0" selected="selected"><?php echo $text_no; ?></option>

@@ -12,3 +12,4 @@ modification (модификации):
 - modification button shopping-cart, heart and balance-scale (изменен стиль кнопок купить, сравнить, закладки);
 - modification text editor on TinyMCE (замена стандартного текстового редактора на TinyMCE);
 - modification product in admin (добавил отображение закупочной цены, для клиента цены и ожидаемой прибыли);
+- modification2 product in admin (после сохранения цена на сайте появляется с наценкой + поля мета данные заполня.тся полуавтоматом);
