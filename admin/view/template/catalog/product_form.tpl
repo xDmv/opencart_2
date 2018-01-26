@@ -163,17 +163,17 @@
                     </div>
                   </div>
                 </div>
-                <label class="col-sm-2 control-label" for="input-price"><?php echo $entry_price0; ?></label>
+                <label class="col-sm-2 control-label" for="input-price0"><?php echo $entry_price0; ?></label>
                 <div class="col-sm-2">
                   <div class="input-group">
-                    <input type="text" name="price" value="<?php echo $price0; ?>" placeholder="<?php echo $entry_price0; ?>" class="form-control" />
+                    <input type="text" name="price0" value="<?php echo $price0; ?>" placeholder="<?php echo $entry_price0; ?>" id="input-price0" class="form-control" />
                     <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
                   </div>
                 </div>
-                <label class="col-sm-2 control-label" for="input-price"><?php echo $entry_pricep; ?></label>
+                <label class="col-sm-2 control-label" for="input-pricep"><?php echo $entry_pricep; ?></label>
                 <div class="col-sm-2">
                   <div class="input-group">
-                    <input type="text" disabled name="price" value="<?php echo $price-$price0; ?>" placeholder="<?php echo $entry_pricep; ?>" class="form-control" />
+                    <input type="text" disabled name="pricep" value="<?php echo $price-$price0; ?>" placeholder="<?php echo $entry_pricep; ?>" class="form-control" />
                     <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
                   </div>
                 </div>
@@ -983,6 +983,15 @@
     </div>
   </div>
   <script type="text/javascript"><!--
+  $('#input-meta-h11').keyup(function(){
+    var Value = $('#input-meta-h11').val();
+    var Value_text = Value + ", Купить " + Value + ", купить в Запорожье " + Value + ", купить в Украине " + Value;
+    $('#input-meta-description1').empty();
+    $('#input-meta-description1').text(Value_text);
+    $('#input-meta-keyword1').empty();
+    $('#input-meta-keyword1').text(Value_text);
+
+  });
     <?php if ($ckeditor) { ?>
       <?php foreach ($languages as $language) { ?>
         ckeditorInit('input-description<?php echo $language['language_id']; ?>', getURLVar('token'));
