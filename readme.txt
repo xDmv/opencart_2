@@ -13,3 +13,4 @@ modification (модификации):
 - modification text editor on TinyMCE (замена стандартного текстового редактора на TinyMCE);
 - modification product in admin (добавил отображение закупочной цены, для клиента цены и ожидаемой прибыли);
 - modification2 product in admin (после сохранения цена на сайте появляется с наценкой + поля мета данные заполня.тся полуавтоматом);
+- modification3 product in admin (автозаполнение полей: HTML-тег Title, HTML-тег H1, Мета-тег Description:, Мета-тег Keywords.);

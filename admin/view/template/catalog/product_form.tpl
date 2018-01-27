@@ -982,10 +982,14 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript"><!--
-  $('#input-meta-h11').keyup(function(){
-    var Value = $('#input-meta-h11').val();
+  <script type="text/javascript"><!--input-name1
+  $('#input-name1').keyup(function(){
+    var Value = $('#input-name1').val();
     var Value_text = Value + ", Купить " + Value + ", купить в Запорожье " + Value + ", купить в Украине " + Value;
+    $('#input-meta-title1').empty();
+    $('#input-meta-title1').val(Value);
+    $('#input-meta-h11').empty();
+    $('#input-meta-h11').val(Value);
     $('#input-meta-description1').empty();
     $('#input-meta-description1').text(Value_text);
     $('#input-meta-keyword1').empty();
