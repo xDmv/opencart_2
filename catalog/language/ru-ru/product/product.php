@@ -7,7 +7,7 @@ $_['text_model']                              = 'Код товара:';
 $_['text_reward']                             = 'Бонусные баллы:';
 $_['text_points']                             = 'Цена в бонусных баллах:';
 $_['text_stock']                              = 'Доступность:';
-$_['text_instock']                            = 'На складе';
+$_['text_instock']                            = '<b style="color: #12df12">Есть в наличии</b>';
 $_['text_tax']                                = 'Без НДС:';
 $_['text_discount']                           = ' или более ';
 $_['text_option']                             = 'Доступные опции';
