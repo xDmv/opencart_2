@@ -14,3 +14,4 @@ modification (модификации):
 - modification product in admin (добавил отображение закупочной цены, для клиента цены и ожидаемой прибыли);
 - modification2 product in admin (после сохранения цена на сайте появляется с наценкой + поля мета данные заполня.тся полуавтоматом);
 - modification3 product in admin (автозаполнение полей: HTML-тег Title, HTML-тег H1, Мета-тег Description:, Мета-тег Keywords.);
+- modification header in admin add Quick Menu (добавил кнопки быстрого доступа: Категории, Товары, Производители, Заливка прайса)

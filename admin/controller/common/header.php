@@ -21,6 +21,11 @@ class ControllerCommonHeader extends Controller {
 		$this->load->language('common/header');
 
 		$data['heading_title'] = $this->language->get('heading_title');
+		$data['text_quick_access'] = $this->language->get('text_quick_access');
+		$data['text_category'] = $this->language->get('text_category');
+		$data['text_products'] = $this->language->get('text_products');
+		$data['text_manufacturer'] = $this->language->get('text_manufacturer');
+		$data['text_update_prise'] = $this->language->get('text_update_prise');
 
 		$data['text_order'] = $this->language->get('text_order');
 		$data['text_processing_status'] = $this->language->get('text_processing_status');
@@ -51,6 +56,11 @@ class ControllerCommonHeader extends Controller {
 
 			$data['home'] = $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true);
 			$data['logout'] = $this->url->link('common/logout', 'token=' . $this->session->data['token'], true);
+
+			$data['category'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true);
+			$data['products'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true);
+			$data['manufacturer'] = $this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'], true);
+			$data['update_prise'] = $this->url->link('module/update_prise', 'token=' . $this->session->data['token'], true);
 
 			// Orders
 			$this->load->model('sale/order');

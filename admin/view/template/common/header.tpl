@@ -11,6 +11,11 @@
 <meta name="keywords" content="<?php echo $keywords; ?>" />
 <?php } ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<!--
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+-->
 <script type="text/javascript" src="view/javascript/jquery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="view/javascript/bootstrap/js/bootstrap.min.js"></script>
 <link href="view/stylesheet/bootstrap.css" type="text/css" rel="stylesheet" />
@@ -40,6 +45,16 @@
     <?php } ?>
     <a href="<?php echo $home; ?>" class="navbar-brand"><img src="view/image/logo.png" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" /></a></div>
   <?php if ($logged) { ?>
+    <ul class="nav pull-left">
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-open"></i> <?php echo $text_quick_access; ?></a>
+        <ul class="dropdown-menu dropdown-menu-right alerts-dropdown">
+          <li><a href="<?php echo $category; ?>"><i class="fa fa-edit"></i> <?php echo $text_category; ?></a></li>
+          <li><a href="<?php echo $products; ?>"><i class="fa fa-edit"></i> <?php echo $text_products; ?></a></li>
+          <li><a href="<?php echo $manufacturer; ?>"><i class="fa fa-edit"></i> <?php echo $text_manufacturer; ?></a></li>
+          <li><a href="<?php echo $update_prise; ?>"><i class="fa fa-download"></i> <?php echo $text_update_prise; ?></a></li>
+        </ul>
+      </li>
+    </ul>
   <ul class="nav pull-right">
     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><?php if($alerts > 0) { ?><span class="label label-danger pull-left"><?php echo $alerts; ?></span><?php } ?> <i class="fa fa-bell fa-lg"></i></a>
       <ul class="dropdown-menu dropdown-menu-right alerts-dropdown">
