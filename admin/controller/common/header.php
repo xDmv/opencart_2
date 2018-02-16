@@ -25,6 +25,9 @@ class ControllerCommonHeader extends Controller {
 		$data['text_category'] = $this->language->get('text_category');
 		$data['text_products'] = $this->language->get('text_products');
 		$data['text_manufacturer'] = $this->language->get('text_manufacturer');
+		$data['text_ocfilter'] = $this->language->get('text_ocfilter');
+		$data['text_mark_ups'] = $this->language->get('text_mark_ups');
+
 		$data['text_update_prise'] = $this->language->get('text_update_prise');
 
 		$data['text_order'] = $this->language->get('text_order');
@@ -60,6 +63,8 @@ class ControllerCommonHeader extends Controller {
 			$data['category'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true);
 			$data['products'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true);
 			$data['manufacturer'] = $this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'], true);
+			$data['ocfilter'] = $this->url->link('catalog/ocfilter', 'token=' . $this->session->data['token'], true);
+			$data['mark_ups'] = $this->url->link('module/mark_ups', 'token=' . $this->session->data['token'], true);
 			$data['update_prise'] = $this->url->link('module/update_prise', 'token=' . $this->session->data['token'], true);
 
 			// Orders

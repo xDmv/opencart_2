@@ -26,4 +26,6 @@ $_['text_quick_access']         = 'Быстрый доступ';
 $_['text_category']             = 'Категории';
 $_['text_products']             = 'Товары';
 $_['text_manufacturer']         = 'Производители';
+$_['text_ocfilter']             = 'Фильтры ocfilter';
+$_['text_mark_ups']             = 'Наценки на товары';
 $_['text_update_prise']         = 'Залить прайс';

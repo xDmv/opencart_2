@@ -48,10 +48,12 @@
     <ul class="nav pull-left">
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder-open"></i> <?php echo $text_quick_access; ?></a>
         <ul class="dropdown-menu dropdown-menu-right alerts-dropdown">
-          <li><a href="<?php echo $category; ?>"><i class="fa fa-edit"></i> <?php echo $text_category; ?></a></li>
-          <li><a href="<?php echo $products; ?>"><i class="fa fa-edit"></i> <?php echo $text_products; ?></a></li>
-          <li><a href="<?php echo $manufacturer; ?>"><i class="fa fa-edit"></i> <?php echo $text_manufacturer; ?></a></li>
-          <li><a href="<?php echo $update_prise; ?>"><i class="fa fa-download"></i> <?php echo $text_update_prise; ?></a></li>
+          <li><a id="category_id" href="<?php echo $category; ?>"><i class="fa fa-edit"></i> <?php echo $text_category; ?></a></li>
+          <li><a id="products_id" href="<?php echo $products; ?>"><i class="fa fa-edit"></i> <?php echo $text_products; ?></a></li>
+          <li><a id="manufacturer_id" href="<?php echo $manufacturer; ?>"><i class="fa fa-edit"></i> <?php echo $text_manufacturer; ?></a></li>
+          <li><a id="ocfilter_id" href="<?php echo $ocfilter; ?>"><i class="fa fa-edit"></i> <?php echo $text_ocfilter; ?></a></li>
+          <li><a id="mark_ups_id" href="<?php echo $mark_ups; ?>"><i class="fa fa-cart-arrow-down"></i> <?php echo $text_mark_ups; ?></a></li>
+          <li><a id="update_prise_id" href="<?php echo $update_prise; ?>"><i class="fa fa-download"></i> <?php echo $text_update_prise; ?></a></li>
         </ul>
       </li>
     </ul>
