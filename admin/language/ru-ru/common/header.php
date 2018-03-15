@@ -29,3 +29,4 @@ $_['text_manufacturer']         = 'Производители';
 $_['text_ocfilter']             = 'Фильтры ocfilter';
 $_['text_mark_ups']             = 'Наценки на товары';
 $_['text_update_prise']         = 'Залить прайс';
+$_['text_valuta']               = 'Изменить курс';
