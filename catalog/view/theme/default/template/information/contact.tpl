@@ -31,7 +31,15 @@
               <?php } ?>
             </div>
             <div class="col-sm-3"><strong><?php echo $text_telephone; ?></strong><br>
-              <?php echo $telephone; ?><br />
+              <?php echo $telephone; ?>
+              <br />
+              <?php if ($telephone1) { ?>
+              <?php echo $telephone1; ?>
+              <?php } ?>
+              <br />
+              <?php if ($telephone2) { ?>
+              <?php echo $telephone2; ?>
+              <?php } ?>
               <br />
               <?php if ($fax) { ?>
               <strong><?php echo $text_fax; ?></strong><br>
