@@ -111,12 +111,12 @@
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-11">
             <span class="telephon-menu">
-              <i class="fa fa-phone"></i> <span ><?php echo $telephone; ?></span>&nbsp;
+              <i class="fa fa-phone"></i> <strong><?php echo $telephone; ?></strong>&nbsp;
               <?php if($telephone1) {?>
-                <i class="fa fa-phone"></i> <span ><?php echo $telephone1; ?></span>&nbsp;
+                <i class="fa fa-phone"></i> <b><?php echo $telephone1; ?></b>&nbsp;
               <?php }?>
               <?php if($telephone2) {?>
-                <i class="fa fa-phone"></i> <span ><?php echo $telephone2; ?></span>
+                <i class="fa fa-phone"></i> <b><?php echo $telephone2; ?></b>
               <?php }?>
             </span>
           </div>
