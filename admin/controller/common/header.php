@@ -29,6 +29,8 @@ class ControllerCommonHeader extends Controller {
 		$data['text_mark_ups'] = $this->language->get('text_mark_ups');
 		$data['text_update_prise'] = $this->language->get('text_update_prise');
 		$data['text_valuta'] = $this->language->get('text_valuta');
+		$data['text_octeam'] = $this->language->get('text_octeam');
+		$data['text_modification'] = $this->language->get('text_modification');
 
 		$data['text_order'] = $this->language->get('text_order');
 		$data['text_processing_status'] = $this->language->get('text_processing_status');
@@ -59,7 +61,7 @@ class ControllerCommonHeader extends Controller {
 
 			$data['home'] = $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true);
 			$data['logout'] = $this->url->link('common/logout', 'token=' . $this->session->data['token'], true);
-
+			// fast menu
 			$data['category'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true);
 			$data['products'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true);
 			$data['manufacturer'] = $this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'], true);
@@ -67,6 +69,9 @@ class ControllerCommonHeader extends Controller {
 			$data['mark_ups'] = $this->url->link('module/mark_ups', 'token=' . $this->session->data['token'], true);
 			$data['update_prise'] = $this->url->link('module/update_prise', 'token=' . $this->session->data['token'], true);
 			$data['valuta'] = $this->url->link('localisation/currency', 'token=' . $this->session->data['token'], true);
+			$data['octeam'] = $this->url->link('octeam/toolset', 'token=' . $this->session->data['token'], true);
+			$data['modification'] = $this->url->link('extension/modification', 'token=' . $this->session->data['token'], true);
+			
 			// Orders
 			$this->load->model('sale/order');
 
